@@ -1,5 +1,3 @@
-require_relative '../lib/ssl_gate'
-
 module SSLGate
   # CLI runner.
   # Parse options and send command to the correct Controller.

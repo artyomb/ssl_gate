@@ -1,8 +1,8 @@
-require_relative 'base_gate'
-require_relative 'base_ssl_gate'
-require_relative 'headers_mod'
-#require_relative 'client_cert'
-require_relative 'runner'
+require_relative 'ssl_gate/base_gate'
+require_relative 'ssl_gate/base_ssl_gate'
+require_relative 'ssl_gate/headers_mod'
+#require_relative 'ssl_gate/client_cert'
+require_relative 'ssl_gate/runner'
 
 module SSLGate
   class ServerAll < Server

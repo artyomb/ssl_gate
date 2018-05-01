@@ -2,9 +2,9 @@ require 'ssl_gate'
 
 config = {
   bind_port: 9001,
-  target: 'http://localhost:9000',
-  private_key_file: File.dirname(__FILE__) + '../test//server.key',
-  cert_chain_file: File.dirname(__FILE__) + '../test//server.crt'
+  target: 'https://www.google.com',
+  private_key_file: File.dirname(__FILE__) + '/../test//server.key',
+  cert_chain_file: File.dirname(__FILE__) + '/../test//server.crt'
 }
 
 EventMachine.run do
