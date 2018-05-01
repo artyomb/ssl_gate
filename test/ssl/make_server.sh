@@ -9,7 +9,7 @@ openssl genrsa -out server.key 2048
 openssl req -new -key server.key -out server.csr -subj "/O=Group/OU=Youtest/CN=localhost"
 
 openssl x509 -req -extfile v3.ext -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650\
-    -extfile <(cat ./v3.ext <(printf "\nsubjectAltName=IP:localhost,DNS:localhost"))
+    -extfile <(cat ./v3.ext <(printf "\nsubjectAltName=IP:127.0.0.1,DNS:127.0.0.1"))
 
 #Debug dump
 openssl req -in server.csr -text -noout >server.csr.txt

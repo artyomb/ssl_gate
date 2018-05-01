@@ -7,8 +7,8 @@ require_relative '../lib/ssl_gate'
 config = {
   bind_port: 9001,
   target: 'http://localhost:9000',
-  private_key_file: File.dirname(__FILE__) + '/server.key',
-  cert_chain_file: File.dirname(__FILE__) + '/server.crt'
+  private_key_file: File.dirname(__FILE__) + '/ssl/server.key',
+  cert_chain_file: File.dirname(__FILE__) + '/ssl/server.crt'
 }
 
 EventMachine.run do
