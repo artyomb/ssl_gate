@@ -24,5 +24,5 @@ module SSLGate
     end
   end
 
-  add_ons << SSLBackendAddOn
+  HTTPServer.add_ons << SSLBackendAddOn
 end

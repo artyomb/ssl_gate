@@ -8,5 +8,5 @@ module SSLGate
     end
   end
 
-  add_ons << ClientCertAddOn
+  HTTPServer.add_ons << ClientCertAddOn
 end

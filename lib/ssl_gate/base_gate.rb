@@ -2,15 +2,15 @@ require 'thin'
 require 'em-http'
 
 module SSLGate
-  class << self; attr_accessor :add_ons end
-  @add_ons = []
 
-  class Server
+  class HTTPServer
+    class << self; attr_accessor :add_ons end
+    @add_ons = []
+
+    attr_reader :config
     def initialize(config)
-      @config = {  signals: false,
-                   bind_interface: '0.0.0.0',
-                   # bind_port: 5050,
-                   # target: 'http://localhost:9000'
+      @config = { signals: false,
+                  # target: 'http://localhost:9000'
       }.merge config
     end
 
@@ -39,8 +39,9 @@ module SSLGate
       throw :async
     end
 
-    def start
-      Thin::Server.start @config[:bind_interface], @config[:bind_port], @config, self
+    def self.start(config)
+      server = new(config)
+      Thin::Server.start (config[:bind_interface] || '0.0.0.0'), config[:bind_port], server.config, server
     end
   end
 end

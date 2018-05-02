@@ -19,10 +19,10 @@ EventMachine.run do
     run lambda { |env| [200, { 'Content-Type' => 'application/javascript' }, [env.to_json]] }
   end
 
-  SSLGate.start config
+  SSLGate::HTTPServerAll.start config
 
   EM.add_timer(1) do
-    100.times do
+    10.times do
       http = EM::HttpRequest.new('https://localhost:9001/path1?p1=v1&p2=v2').get
       http.callback {
         puts "#{http.response_header.status} - #{http.response.length} bytes\n"

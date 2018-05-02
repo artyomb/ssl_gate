@@ -23,5 +23,5 @@ module SSLGate
     end
   end
 
-  add_ons << HeadersModAddOn
+  HTTPServer.add_ons << HeadersModAddOn
 end

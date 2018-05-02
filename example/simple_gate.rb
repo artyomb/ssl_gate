@@ -11,5 +11,5 @@ EventMachine.run do
   Signal.trap('INT')  { EM.stop if EM.reactor_running? }
   Signal.trap('TERM') { EM.stop if EM.reactor_running? }
 
-  SSLGate.start config
+  SSLGate::HTTPServerAll.start config
 end

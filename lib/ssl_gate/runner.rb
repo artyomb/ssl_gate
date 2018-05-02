@@ -12,7 +12,7 @@ module SSLGate
         Signal.trap('INT')  { EM.stop if EM.reactor_running? }
         Signal.trap('TERM') { EM.stop if EM.reactor_running? }
 
-        SSLGate.start @config
+        #SSLGate.XX.start @config
       end
     end
   end
