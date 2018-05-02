@@ -19,6 +19,8 @@ EventMachine.run do
 
   SSLGate::RawServerAll.start config
 
+  EM.add_timer(3) { EM.stop }
+
   EM.add_timer(1) do
     10.times do
       EventMachine.connect '127.0.0.1', 9001 do |c|

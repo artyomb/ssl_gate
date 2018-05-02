@@ -21,6 +21,8 @@ EventMachine.run do
 
   SSLGate::HTTPServerAll.start config
 
+  EM.add_timer(3) { EM.stop }
+
   EM.add_timer(1) do
     10.times do
       http = EM::HttpRequest.new('https://localhost:9001/path1?p1=v1&p2=v2').get
