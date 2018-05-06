@@ -1,6 +1,5 @@
----
-:http:
-  :bind_port: 9001
-  :target: https://www.google.com
-  :private_key_file: "/home/user/projects/ssl_gate/example/../test/ssl/server.key"
-  :cert_chain_file: "/home/user/projects/ssl_gate/example/../test/ssl/server.crt"
+http:
+  bind_port: 9001
+  target: https://www.google.com
+  private_key_file: "../test/ssl/server.key"
+  cert_chain_file: "../test/ssl/server.crt"
