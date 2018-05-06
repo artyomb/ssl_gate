@@ -22,9 +22,8 @@ module SSLGate
 
         SSLGate.factory config
       end
-    rescue =>e
+    rescue => e
       STDERR.puts e.message
-
     end
   end
 end
