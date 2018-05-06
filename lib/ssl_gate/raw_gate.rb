@@ -13,9 +13,9 @@ module SSLGate
 
       cb = proc do |msg|
         msg ? send_data(msg) : close_connection
-        q.pop &cb
+        q.pop(&cb)
       end
-      q.pop &cb
+      q.pop(&cb)
     end
 
     def receive_data(data)

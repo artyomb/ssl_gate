@@ -18,7 +18,7 @@ module SSLGate
       r_method = env['REQUEST_METHOD'].downcase.to_sym
       r_query = env['QUERY_STRING']
       r_path = env['REQUEST_PATH']
-      input = env['rack.input'] #StringIO
+      # input = env['rack.input'] #StringIO
       env[:target_request_options] ||= { connect_timeout: 20, inactivity_timeout: 20 }
 
       puts "head: #{env[:target_get_options][:head] rescue ''}"

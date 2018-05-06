@@ -21,5 +21,15 @@ module SSLGate
       prepend add_on
     }
   end
+
+  def self.factory(config)
+    config.each do |key, conf|
+      case key.to_s
+      when 'http' then HTTPServerAll.start conf
+      when 'tcp' then RawServerAll.start conf
+      else STDERR.puts "Unknown gate type: #{key}"
+      end
+    end
+  end
 end
 

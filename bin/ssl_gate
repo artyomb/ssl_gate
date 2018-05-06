@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require_relative 'ssl_gate'
+require 'ssl_gate'
 
-SSLGate::Runner.new(config).start
+SSLGate::Runner.start

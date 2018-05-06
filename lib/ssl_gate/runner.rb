@@ -1,19 +1,22 @@
+require 'yaml'
+
 module SSLGate
   # CLI runner.
   # Parse options and send command to the correct Controller.
   class Runner
 
-    def initialize(config)
-      @config = config
-    end
+    def self.start
+      config = YAML.load_file 'SSLGate'
 
-    def start
       EventMachine.run do
         Signal.trap('INT')  { EM.stop if EM.reactor_running? }
         Signal.trap('TERM') { EM.stop if EM.reactor_running? }
 
-        #SSLGate.XX.start @config
+        SSLGate.factory config
       end
+    rescue =>e
+      STDERR.puts e.message
+
     end
   end
 end

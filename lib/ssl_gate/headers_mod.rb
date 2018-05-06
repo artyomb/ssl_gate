@@ -6,7 +6,7 @@ module SSLGate
       prev = env['async.callback']
       env['async.callback'] = lambda { |*args|
         # puts 'I see you'
-        prev.call *args
+        prev.call(*args)
       }
       headers = env.select { |k, _v| k.start_with? 'HTTP_' }
                    .collect { |key, val| [key.sub(/^HTTP_/, '').gsub('_', '-'), val] }
