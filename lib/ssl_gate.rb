@@ -24,10 +24,9 @@ module SSLGate
 
   def self.factory(config)
     config.each do |key, conf|
-      case key.to_s
-      when 'http' then HTTPServerAll.start conf
-      when 'tcp' then RawServerAll.start conf
-      else STDERR.puts "Unknown gate type: #{key}"
+      case conf[:target]
+      when /http/ then HTTPServerAll.start conf
+      else RawServerAll.start conf
       end
     end
   end

@@ -1,4 +1,4 @@
-http:
+google:
   bind_port: 9001
   target: https://www.google.com
   private_key_file: "../test/ssl/server.key"
