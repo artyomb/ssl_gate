@@ -1,11 +1,11 @@
 # SSL_Gate
 
-This gems allows to start TCP(HTTP) server that serves SSL(TLS) connections and forwards them further.  
+This gem allows to start TCP(HTTP) server that serves SSL(TLS) connections and forwards them to the target.  
 HTTP requests are recreated and responses are send back 
 while TCP connections are coupled and each data packets are forwarded both directions asynchronously.  
 
 ## Installation
-To install the gem run
+To install the gem
 
     $ gem install ssl_gate
 
@@ -26,7 +26,7 @@ This will start the HTTPS server on the 0.0.0.0:9001 with the SSL Certificate sp
 Each request will spawn the corresponding one to the target server and response will be send back.
 
 ## Local Gate
-More practical example is to setup server gates to secure access local services. 
+More practical example is to setup server gates to secure local services access. 
 Suppose you have Wiki server, RestAPI server and Jabber server running locally. 
 Then you can setup three gates to provide SSL access these services from outside. 
 The `SSLGate` file may looks as follows  
@@ -47,4 +47,4 @@ jabber:
   private_key_file: "xmpp_server.key"
   cert_chain_file: "xmpp_server.crt"
 ```
-Simple run `ssl_gate` to start 
+To start the gates simply run `ssl_gate` in the SSLGate file directory 
