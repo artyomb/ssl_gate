@@ -28,7 +28,8 @@ Each request will spawn the corresponding one to the target server and response 
 ## Local Gate
 More practical example is to setup server gates to secure local services access. 
 Suppose you have Wiki server, RestAPI server and Jabber server running locally. 
-Then you can setup three gates to provide SSL access these services from outside. 
+Then you can setup three gates to provide SSL access to these services from outside. 
+
 The `SSLGate` file may looks as follows  
 ```yaml
 wiki:
